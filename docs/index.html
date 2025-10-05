@@ -396,26 +396,101 @@ viewBox="0 0 24 24"
 
     <script src="js/navigation.js"></script>
     <script src="js/booking.js"></script>
-    <script>
-        const form = document.querySelector("form");
-        const status = document.getElementById("form-status");
+    <!-- Success Modal -->
+    <div id="success-modal"
+         class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4"
+         role="dialog" aria-modal="true" aria-labelledby="success-title">
+      <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+        <h2 id="success-title" class="text-xl font-semibold mb-2">Thanks! Your message was sent</h2>
+        <p class="text-gray-600 mb-6">
+          We’ll get back to you shortly. You can keep browsing or close this message.
+        </p>
+        <div class="flex items-center justify-end gap-2">
+          <button id="success-close"
+                  class="rounded-lg border border-gray-300 px-4 py-2 hover:bg-gray-50">
+            Close
+          </button>
+          <a href="#rooms"
+             class="rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700">
+            View Rooms
+          </a>
+        </div>
+      </div>
+    </div>
 
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const data = new FormData(form);
-          const response = await fetch(form.action, {
+    <!-- Error Modal -->
+    <div id="error-modal"
+         class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4"
+         role="dialog" aria-modal="true" aria-labelledby="error-title">
+      <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+        <h2 id="error-title" class="text-xl font-semibold mb-2">Uh-oh, something went wrong</h2>
+        <p class="text-gray-600 mb-6">
+          Please try again in a moment or email us directly at <strong>bookings@taksim-blue.com</strong>.
+        </p>
+        <div class="flex items-center justify-end">
+          <button id="error-close"
+                  class="rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    (function () {
+      const form = document.querySelector("form"); // or add an id and select by #id
+      const successModal = document.getElementById("success-modal");
+      const errorModal = document.getElementById("error-modal");
+      const successClose = document.getElementById("success-close");
+      const errorClose = document.getElementById("error-close");
+
+      function showModal(el) {
+        el.classList.remove("hidden");
+        el.classList.add("flex");
+        // Basic focus handling for accessibility
+        const focusable = el.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
+        (focusable || el).focus();
+        // Close on Escape
+        function onKey(e){ if (e.key === "Escape") hideModal(el, onKey); }
+        document.addEventListener("keydown", onKey);
+        // Close when clicking backdrop
+        function onBackdrop(e){ if (e.target === el) hideModal(el, onKey, onBackdrop); }
+        el.addEventListener("click", onBackdrop);
+        el._esc = onKey; el._backdrop = onBackdrop;
+      }
+
+      function hideModal(el, escHandler, backdropHandler) {
+        el.classList.add("hidden");
+        el.classList.remove("flex");
+        if (escHandler) document.removeEventListener("keydown", escHandler);
+        if (backdropHandler) el.removeEventListener("click", backdropHandler);
+      }
+
+      successClose?.addEventListener("click", () => hideModal(successModal, successModal._esc, successModal._backdrop));
+      errorClose?.addEventListener("click", () => hideModal(errorModal, errorModal._esc, errorModal._backdrop));
+
+      form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
             method: form.method,
             body: data,
-            headers: { 'Accept': 'application/json' }
+            headers: { "Accept": "application/json" }
           });
-          if (response.ok) {
-            status.textContent = "Message sent successfully! We'll reply soon.";
+          if (res.ok) {
             form.reset();
+            showModal(successModal);
           } else {
-            status.textContent = "Oops! Something went wrong. Please try again later.";
+            showModal(errorModal);
           }
-        });
-        </script>
+        } catch (err) {
+          showModal(errorModal);
+        }
+      });
+    })();
+    </script>
+
 
 </body>
 </html>
