@@ -240,32 +240,99 @@ d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 
                 <div>
                     <h3 class="text-2xl font-semibold text-gray-900 mb-6">Quick Message</h3>
-                    <form class="space-y-4">
+                    <form
+                      action="https://formspree.io/f/xdkwdway"
+                      method="POST"
+                      class="space-y-4"
+                    >
+                      <!-- Honeypot (spam trap) -->
+                      <input type="text" name="_gotcha" class="hidden" style="display:none">
+
+                      <div>
+                        <label class="sr-only" for="name">Name</label>
+                        <input
+                          id="name"
+                          name="name"
+                          type="text"
+                          placeholder="Your Name"
+                          required
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                      </div>
+
+                      <div>
+                        <label class="sr-only" for="email">Email</label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Your Email"
+                          required
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <input
-type="text"
-placeholder="Your Name"
-class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
->
+                          <label class="sr-only" for="checkin">Check-in</label>
+                          <input
+                            id="checkin"
+                            name="checkin"
+                            type="date"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          >
                         </div>
                         <div>
-                            <input
-type="email"
-placeholder="Your Email"
-class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
->
+                          <label class="sr-only" for="checkout">Check-out</label>
+                          <input
+                            id="checkout"
+                            name="checkout"
+                            type="date"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          >
                         </div>
-                        <div>
-                            <textarea
-placeholder="Your Message"
-rows="4"
-class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                            Send Message
-                        </button>
+                      </div>
+
+                      <div>
+                        <label class="sr-only" for="guests">Guests</label>
+                        <input
+                          id="guests"
+                          name="guests"
+                          type="number"
+                          min="1"
+                          placeholder="Number of Guests"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                      </div>
+
+                      <div>
+                        <label class="sr-only" for="message">Message</label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows="4"
+                          placeholder="Your Message"
+                          required
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        ></textarea>
+                      </div>
+
+                      <!-- OPTIONAL: auto-redirect to a Thank You page after submit -->
+                      <input type="hidden" name="_redirect" value="https://taksim-blue.com/thanks.html">
+                      <!-- OPTIONAL: email subject -->
+                      <input type="hidden" name="_subject" value="New Taksim Blue Inquiry">
+
+                      <button
+                        type="submit"
+                        class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+                      >
+                        Send Message
+                      </button>
+
+                      <!-- Success/Fail inline messages (Formspree will also show its own) -->
+                      <p id="form-status" class="text-sm text-gray-600 mt-2"></p>
                     </form>
+
                 </div>
             </div>
         </div>
