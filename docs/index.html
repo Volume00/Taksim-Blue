@@ -396,5 +396,26 @@ viewBox="0 0 24 24"
 
     <script src="js/navigation.js"></script>
     <script src="js/booking.js"></script>
+    <script>
+        const form = document.querySelector("form");
+        const status = document.getElementById("form-status");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const data = new FormData(form);
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            status.textContent = "Message sent successfully! We'll reply soon.";
+            form.reset();
+          } else {
+            status.textContent = "Oops! Something went wrong. Please try again later.";
+          }
+        });
+        </script>
+
 </body>
 </html>
