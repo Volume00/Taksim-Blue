@@ -4,7 +4,7 @@
  */
 
 /* global Stripe */
-
+/*
 // Stripe configuration (test mode)
 const STRIPE_PUBLIC_KEY = 'pk_live_51R3hGhC1JL2uEXXEBUI08S5h4kG42aE65dc18UryW7ko2QuRrIws9xVD2GpIyOaiYcbzV4KNhrGrFBbTj0baW8q200AGYrOSoN'; // Valid test key format
 let stripe = null;
@@ -24,10 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeStripe();
     initializePaymentForms();
 });
-
+*/
 /**
  * Initialize Stripe
  */
+/*
 function initializeStripe() {
     try {
         // Check if Stripe is available
@@ -61,10 +62,11 @@ function initializeStripe() {
         showPaymentError('Payment system unavailable. Please try again later.');
     }
 }
-
+*/
 /**
  * Initialize payment forms
  */
+/*
 function initializePaymentForms() {
     const paymentForms = document.querySelectorAll('.payment-form, form[data-payment-form]');
     
@@ -82,6 +84,7 @@ function initializePaymentForms() {
 /**
  * Setup payment form
  */
+/*
 function setupPaymentForm(form) {
     // Create payment container if it doesn't exist
     let paymentContainer = form.querySelector('.payment-container');
@@ -120,6 +123,7 @@ function setupPaymentForm(form) {
 /**
  * Initialize payment elements
  */
+/*
 function initializePaymentElements(bookingData) {
     if (!stripe || !elements) {
         console.error('Stripe not initialized');
@@ -169,10 +173,11 @@ function initializePaymentElements(bookingData) {
     // Create payment intent
     createPaymentIntent(bookingData);
 }
-
+*/
 /**
  * Create payment intent
  */
+/*
 function createPaymentIntent(bookingData) {
     // Simulate API call to create payment intent
     // In a real application, this would be a server-side call
@@ -185,10 +190,11 @@ function createPaymentIntent(bookingData) {
         console.log('Booking data:', bookingData);
     }, 1000);
 }
-
+*/
 /**
  * Handle payment form submission
  */
+/*
 function handlePaymentSubmission(e) {
     e.preventDefault();
     
@@ -229,7 +235,7 @@ function handlePaymentSubmission(e) {
 
 /**
  * Process payment with Stripe
- */
+ *//*
 function processPayment(form) {
     if (!stripe || !cardElement || !PaymentState.clientSecret) {
         return Promise.reject(new Error('Payment system not ready'));
@@ -247,9 +253,9 @@ function processPayment(form) {
     });
 }
 
-/**
+*//**
  * Get billing details from form
- */
+ *//*
 function getBillingDetails(form) {
     const formData = new FormData(form);
     
@@ -267,9 +273,9 @@ function getBillingDetails(form) {
     };
 }
 
-/**
+*//**
  * Validate booking data
- */
+ *//*
 function validateBookingData() {
     // Check if booking state has required data
     if (!window.BookingUtils || !window.BookingUtils.BookingState) {
@@ -287,7 +293,7 @@ function validateBookingData() {
 
 /**
  * Handle successful payment
- */
+ *//*
 function handlePaymentSuccess(result) {
     const paymentIntent = result.paymentIntent;
     
@@ -313,24 +319,24 @@ function handlePaymentSuccess(result) {
         window.location.href = 'booking-confirmation.html';
     }, 3000);
 }
-
+*/
 /**
  * Generate confirmation number
- */
+ *//*
 function generateConfirmationNumber() {
     return 'CONF' + Date.now().toString().slice(-8) + Math.random().toString(36).substr(2, 4).toUpperCase();
 }
-
+*/
 /**
  * Generate booking ID
- */
+ *//*
 function generateBookingId() {
     return 'BK' + Date.now().toString() + Math.random().toString(36).substr(2, 6).toUpperCase();
 }
-
+*/
 /**
  * Update payment amount display
- */
+ *//*
 function updatePaymentAmount(amount) {
     const amountElements = document.querySelectorAll('#payment-amount, .payment-amount');
     amountElements.forEach(element => {
@@ -340,7 +346,7 @@ function updatePaymentAmount(amount) {
 
 /**
  * Set payment loading state
- */
+ *//*
 function setPaymentLoading(form, isLoading) {
     const submitButton = form.querySelector('button[type="submit"]');
     const cardElementContainer = document.getElementById('card-element');
@@ -370,7 +376,7 @@ function setPaymentLoading(form, isLoading) {
 
 /**
  * Show payment success message
- */
+ *//*
 function showPaymentSuccess(confirmation) {
     const message = `
         <div class="payment-success">
@@ -395,7 +401,7 @@ function showPaymentSuccess(confirmation) {
 
 /**
  * Show payment error message
- */
+ *//*
 function showPaymentError(message) {
     const errorMessage = `
         <div class="payment-error">
@@ -415,7 +421,7 @@ function showPaymentError(message) {
 
 /**
  * Show payment notification
- */
+ *//*
 function showPaymentNotification(message, type) {
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.payment-notification');
@@ -446,7 +452,7 @@ function showPaymentNotification(message, type) {
 
 /**
  * Format currency amount
- */
+ *//*
 function formatCurrency(amount, currency = 'USD') {
     return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -456,7 +462,7 @@ function formatCurrency(amount, currency = 'USD') {
 
 /**
  * Cleanup payment elements
- */
+ *//*
 function cleanupPaymentElements() {
     if (cardElement) {
         cardElement.unmount();
@@ -481,4 +487,4 @@ window.PaymentUtils = {
 };
 
 // Cleanup on page unload
-window.addEventListener('beforeunload', cleanupPaymentElements);
+window.addEventListener('beforeunload', cleanupPaymentElements);*/

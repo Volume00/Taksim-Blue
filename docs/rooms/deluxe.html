@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../css/responsive.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body data-room-slug="deluxe">
+
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,10 +58,10 @@ d="M4 6h16M4 12h16M4 18h16"
     <section class="room-header bg-gradient-to-r from-gray-50 to-blue-50 pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Business Suite</h1>
-                <p class="text-xl text-gray-600 mb-6">Designed for the business traveler, our Business Suite includes a dedicated office space, meeting area, and express business services.</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Deluxe Ocean View</h1>
+                <p class="text-xl text-gray-600 mb-6">Wake up to breathtaking ocean views in our Deluxe Ocean View room. This elegant space features a comfortable queen bed, private balcony, and direct access to our spa facilities.</p>
                 <div class="room-price text-3xl font-bold text-blue-600 mb-8">
-                    $379<span class="text-lg font-normal text-gray-500">/night</span>
+                    $399<span class="text-lg font-normal text-gray-500">/night</span>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <button onclick="scrollToBooking()" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
@@ -83,13 +84,13 @@ d="M4 6h16M4 12h16M4 18h16"
                     <div class="mb-12">
                         <h2 class="text-3xl font-bold text-gray-900 mb-6">Room Overview</h2>
                         <p class="text-lg text-gray-600 mb-6">
-                            Designed for the business traveler, our Business Suite includes a dedicated office space, meeting area, and express business services. This thoughtfully designed space combines luxury with functionality to create the perfect retreat for discerning guests.
+                            Wake up to breathtaking ocean views in our Deluxe Ocean View room. This elegant space features a comfortable queen bed, private balcony, and direct access to our spa facilities. This thoughtfully designed space combines luxury with functionality to create the perfect retreat for discerning guests.
                         </p>
                         <p class="text-lg text-gray-600 mb-6">
                             Every detail has been carefully considered to ensure your comfort and satisfaction. From premium furnishings to state-of-the-art amenities, this room provides everything you need for an exceptional stay.
                         </p>
                         <p class="text-lg text-gray-600">
-                            Whether you're traveling for business or leisure, our business suite offers the perfect blend of comfort, style, and convenience to make your stay truly memorable.
+                            Whether you're traveling for business or leisure, our deluxe ocean view offers the perfect blend of comfort, style, and convenience to make your stay truly memorable.
                         </p>
                     </div>
 
@@ -113,7 +114,7 @@ stroke-width="2"
 d="M5 13l4 4L19 7"
 ></path>
                                         </svg>
-                                        <span>King Bed</span>
+                                        <span>Queen Bed</span>
                                     </li>
                                     <li class="amenity-item flex items-center">
                                         <svg
@@ -129,7 +130,7 @@ stroke-width="2"
 d="M5 13l4 4L19 7"
 ></path>
                                         </svg>
-                                        <span>Office Space</span>
+                                        <span>Ocean View</span>
                                     </li>
                                     <li class="amenity-item flex items-center">
                                         <svg
@@ -145,7 +146,7 @@ stroke-width="2"
 d="M5 13l4 4L19 7"
 ></path>
                                         </svg>
-                                        <span>Meeting Area</span>
+                                        <span>Balcony</span>
                                     </li>
                                 </ul>
                             </div>
@@ -165,7 +166,7 @@ stroke-width="2"
 d="M5 13l4 4L19 7"
 ></path>
                                         </svg>
-                                        <span>Business Center Access</span>
+                                        <span>Mini Bar</span>
                                     </li>
                                     <li class="amenity-item flex items-center">
                                         <svg
@@ -181,7 +182,7 @@ stroke-width="2"
 d="M5 13l4 4L19 7"
 ></path>
                                         </svg>
-                                        <span>Premium WiFi</span>
+                                        <span>Free WiFi</span>
                                     </li>
                                     <li class="amenity-item flex items-center">
                                         <svg
@@ -197,7 +198,7 @@ stroke-width="2"
 d="M5 13l4 4L19 7"
 ></path>
                                         </svg>
-                                        <span>Express Services</span>
+                                        <span>Spa Access</span>
                                     </li>
                                 </ul>
                             </div>
@@ -243,13 +244,14 @@ class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 fo
 >
                                     <option value="1">1 Guest</option>
                                     <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
                                 </select>
                             </div>
                             
                             <div class="booking-summary bg-gray-400 p-4 rounded-md">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-sm text-gray-600">Room Rate:</span>
-                                    <span class="text-sm font-medium">$379/night</span>
+                                    <span class="text-sm font-medium">$399/night</span>
                                 </div>
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-sm text-gray-600">Nights:</span>
@@ -366,7 +368,7 @@ placeholder="Any special requests or preferences..."
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">Room Rules</h3>
                     <ul class="space-y-2 text-gray-600">
-                        <li>• Maximum occupancy: 2 guests</li>
+                        <li>• Maximum occupancy: 3 guests</li>
                         <li>• No smoking in rooms</li>
                         <li>• Pets allowed with prior approval</li>
                         <li>• Quiet hours: 10:00 PM - 7:00 AM</li>
@@ -420,7 +422,6 @@ placeholder="Any special requests or preferences..."
 
     <script src="../js/navigation.js"></script>
     <script src="../js/booking.js"></script>
-    <script src="../js/payment.js"></script>
     
     <script>
         function scrollToBooking() {
